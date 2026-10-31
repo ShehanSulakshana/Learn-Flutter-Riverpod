@@ -35,7 +35,7 @@ class HomeScreen extends ConsumerWidget {
                 children: [
                   Image.asset(allProducts[index].image, width: 60, height: 60),
                   Text(allProducts[index].title),
-                  Text('Rs.${allProducts[index].price.toString()}'),
+                  Text('\$ ${allProducts[index].price.toString()}'),
 
                   if (cartProducts.contains(allProducts[index]))
                     TextButton(
