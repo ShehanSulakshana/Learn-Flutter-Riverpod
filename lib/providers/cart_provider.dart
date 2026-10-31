@@ -5,14 +5,7 @@ class CartNotifier extends Notifier<Set<Product>> {
   // Initial value
   @override
   Set<Product> build() {
-    return {
-      Product(
-        id: '4',
-        title: 'Red Backpack',
-        price: 14,
-        image: 'assets/products/backpack.png',
-      ),
-    };
+    return {};
   }
 
   // Methods to update state
@@ -32,7 +25,6 @@ class CartNotifier extends Notifier<Set<Product>> {
 final CartNotifierProvider = NotifierProvider<CartNotifier, Set<Product>>(() {
   return CartNotifier();
 });
-
 
 // Dependent Provider
 final cartTotal = Provider<int>((ref) {
