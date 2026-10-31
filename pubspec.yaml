@@ -1,4 +1,4 @@
-name: garage_sale_products
+name: learn_riverpod
 description: "Hands-on experiments and examples mastering Riverpod for robust state management in Flutter applications."
 publish_to: 'none'
 version: 0.1.0
