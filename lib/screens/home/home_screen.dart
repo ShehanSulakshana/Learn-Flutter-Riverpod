@@ -30,7 +30,7 @@ class HomeScreen extends ConsumerWidget {
           itemBuilder: (context, index) {
             return Container(
               padding: const EdgeInsets.all(20),
-              color: Colors.blueGrey.withOpacity(0.05),
+              color: Colors.blueGrey.withAlpha(5),
               child: Column(
                 children: [
                   Image.asset(allProducts[index].image, width: 60, height: 60),
