@@ -16,6 +16,7 @@ class _CartScreenState extends ConsumerState<CartScreen> {
   @override
   Widget build(BuildContext context) {
     final cartProducts = ref.read(CartNotifierProvider);
+    final total = ref.read(cartTotal);
 
     return Scaffold(
       appBar: AppBar(
@@ -23,31 +24,47 @@ class _CartScreenState extends ConsumerState<CartScreen> {
         centerTitle: true,
         // actions: [],
       ),
-      body: Container(
-        padding: const EdgeInsets.all(30),
-        child: Column(
-          children: [
-            Column(
-              children: cartProducts.map((product) {
-                return Container(
-                  padding: const EdgeInsets.only(top: 10, bottom: 10),
+      body: Column(
+        children: [
+          Container(
+            padding: const EdgeInsets.all(30),
+            child: Column(
+              children: [
+                Column(
+                  children: cartProducts.map((product) {
+                    return Container(
+                      padding: const EdgeInsets.only(top: 10, bottom: 10),
 
-                  child: Row(
-                    children: [
-                      Image.asset(product.image, width: 60, height: 60),
-                      const SizedBox(width: 10),
-                      Text(product.title),
-                      const Expanded(child: SizedBox()),
-                      Text('Rs.${product.price}'),
-                    ],
-                  ),
-                );
-              }).toList(), // output cart products here
+                      child: Row(
+                        children: [
+                          Image.asset(product.image, width: 60, height: 60),
+                          const SizedBox(width: 10),
+                          Text(product.title),
+                          const Expanded(child: SizedBox()),
+                          Text('Rs.${product.price}'),
+                        ],
+                      ),
+                    );
+                  }).toList(), // output cart products here
+                ),
+              ],
             ),
-
-            // output totals here
-          ],
-        ),
+          ),
+          // output totals here
+          Expanded(child: SizedBox()),
+          Container(
+            padding: EdgeInsets.symmetric(vertical: 15, horizontal: 30),
+            decoration: BoxDecoration(
+              color: const Color.fromRGBO(213, 221, 221, 1),
+            ),
+            width: double.infinity,
+            height: 90,
+            child: Text(
+              'Total Price: \$ ${total.toString()}',
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+            ),
+          ),
+        ],
       ),
     );
   }

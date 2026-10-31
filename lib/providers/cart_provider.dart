@@ -32,3 +32,16 @@ class CartNotifier extends Notifier<Set<Product>> {
 final CartNotifierProvider = NotifierProvider<CartNotifier, Set<Product>>(() {
   return CartNotifier();
 });
+
+
+// Dependent Provider
+final cartTotal = Provider<int>((ref) {
+  final cartProducts = ref.watch(CartNotifierProvider);
+
+  int total = 0;
+
+  for (Product product in cartProducts) {
+    total += product.price;
+  }
+  return total;
+});
