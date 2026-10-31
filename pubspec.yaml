@@ -1,5 +1,5 @@
-name: learn_riverpod
-description: "A new Flutter project."
+name: garage_sale_products
+description: "Hands-on experiments and examples mastering Riverpod for robust state management in Flutter applications."
 publish_to: 'none'
 version: 0.1.0
 
